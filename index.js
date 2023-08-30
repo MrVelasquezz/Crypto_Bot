@@ -80,7 +80,7 @@ const notify_users = async (pair, status, amount_bought, amount_returned, r_stat
             console.log(`User ${item.value[1]} ${item.value[0] ? "" : "does not"} recieved the message`)
         })
     } catch (e) {
-
+        console.log(e)
     }
 }
 
@@ -151,6 +151,8 @@ app.post('/log', async (req, res) => {
             amount_bought,
             amount_returned
         } = req.body
+
+        console.log(req.body) // for debug in production
 
         amount_bought = parseFloat(amount_bought)
         amount_returned = parseFloat(amount_returned) || 0
